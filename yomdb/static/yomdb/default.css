@@ -1,0 +1,110 @@
+*{
+	margin : 0;
+	padding : 0;
+}
+
+body{
+	background 	: 	#fff;
+	border 		: 	0;
+	color 		: 	#222;
+	font-family : 	"Open Sans";
+	font-size 	: 	16px;
+	line-height : 	1.5;
+	margin 		: 	0;
+	padding 	: 	0;
+	width 		: 	100%;
+}
+
+header{
+	background 	: 	#ff3242;
+	color 		:  	#fff;
+	padding 	: 	2em;
+	text-align 	: 	center;
+}
+
+h1{
+	font-size 	: 	2.5em;
+	font-weight : 	300;
+	line-height : 	2;
+}
+
+label{
+	font-weight : 	bold;
+	margin-right: 	1em;
+}
+
+input{
+	background 	: 	#eee;
+	border 		: 	none;
+	padding 	:  	4px 12px;
+}
+
+button{
+	font-size 	:  	1.25em;
+	padding 	: 	4px 18px;
+}
+
+.add-movie{
+	font-size 	: 	1.25em;
+	padding 	: 	8px 12px;
+	width 		: 	300px;
+}
+
+.page-content{
+	margin 		: 	2em auto;
+	width 		: 	720px;
+}
+
+.filter-input{
+	width 		: 	550px;
+}
+
+select{
+	float 		: 	right;
+	padding 	: 	0 4px;
+}
+
+.movie-item{
+	border 		: 	1px solid #ddd;
+	margin 		: 	1em 0;
+	padding 	: 	1em 2em;
+}
+
+.item-header{
+	overflow 	: 	hidden;
+}
+
+.item-header h2{
+	float 		: 	left;
+}
+
+.item-header h2 .small{
+	font-size 	: 	0.5em;
+}
+
+.actor:after, .genre:after{
+	content 	: 	",";
+}
+
+.actor:last-child:after, .genre:last-child:after{
+	content		: 	"";
+}
+
+.genres{
+	color 		: 	#777;
+	float 		: 	right;
+	font-weight	: 	bold;
+	padding 	: 	6px 0;
+}
+
+.status{
+	overflow 	: 	hidden;
+}
+
+.watched{
+	float 		: 	left;
+}
+
+.date-added{
+	float 		: 	right;
+}

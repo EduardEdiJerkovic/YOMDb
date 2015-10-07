@@ -1,0 +1,61 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8"/>
+	<title>YOMDb</title>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'yomdb/default.css' %}"/>
+</head>
+<body>
+	<header>
+		<h1>YOMDb</h1>
+		<h2>Showing movies with {{ filter_type }} = {{ filter_content }}</h2>
+	</header>
+	<div class = "page-content">
+		<div class = "filter-options">
+			<form method = "get" action = "{% url 'filter' %}">
+				{% csrf_token %}
+				<label for = "filter">Filter:</label>
+				<input type = "text" class = "filter-input" name = "content"/>
+				<select name = "type">
+					<option value = "0">Title</option>
+					<option value = "1">Actor</option>
+					<option value = "2">Genre</option>
+				</select>
+			</form>
+		</div>
+		<div class = "movie-list">
+			{% for movie in movies %}
+			<div class = "movie-item">
+				<div class = "item-header">
+					<h2>{{movie.title}} <span class = "small"><a href = "{% url 'delete' movie.id %}">remove</a></span></h2>
+					<div class = "genres">
+						{% for genre in movie.genres %}
+							<span class = "genre">{{ genre }}</span>
+						{% endfor %}
+					</div>
+				</div>
+				<div class = "actors">
+					{% for actor in movie.actors %}
+						<span class = "actor">{{actor}}</span>
+					{% endfor %}
+				</div>
+				<div class = "status">
+					<div class = "watched">
+						{% if movie.watched %}
+							Watched
+						{% else %}
+							<a href = "{% url 'mark_watched' movie.id %}">Not watched</a>
+						{% endif%}
+					</div>
+					<div class = "date-added">
+						<span class = "date-added">{{movie.date_added}}</span>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</body>
+</html>
