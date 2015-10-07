@@ -30,7 +30,7 @@ def add_movie( request ):
 	
 		for genre_name in data[ 'Genre' ].split( ',' ):
 			genre, created = Genre.objects.get_or_create( name = genre_name )
-		movie.genres.add( genre )
+			movie.genres.add( genre )
 		
 	return redirect( 'index' )
 
